@@ -7,7 +7,10 @@
 	define('DOC_ROOT', ''); // User Specified
 	define('DOC_PATH', '');  // User Specified
 
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Connection To The Database Could Not Be Established');
+	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	
+	if($mysqli->connect_errno)
+		die('Connection To The Database Could Not Be Established');
 
 	include_once('includes/createTable.php');
 
